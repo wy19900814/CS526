@@ -48,7 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\play.js" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>/Users/student/Audio Speed/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>/Users/student/git/CS526/Audio Speed/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

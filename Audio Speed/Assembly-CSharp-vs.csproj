@@ -54,7 +54,7 @@
      <Compile Include="Assets\Scripts\SpawnScript.cs" />
      <Compile Include="Assets\Scripts\TriggerZoneScript.cs" />
  <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>/Users/student/Audio Speed/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
+ <HintPath>/Users/student/git/CS526/Audio Speed/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>
