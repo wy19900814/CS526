@@ -4,7 +4,7 @@ using System.Collections;
 
 public class PlayerControl : MonoBehaviour {
 	
-	private float TRACK_WIDTH = 2.6f;
+	private float TRACK_WIDTH = 1.2f;
 	private float Y_POSITION = 1.2f;
 	private float Z_POSITION = -7.0f;
 

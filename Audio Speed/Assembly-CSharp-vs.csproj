@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\GameControlScript.cs" />
      <Compile Include="Assets\Scripts\GroundControl.cs" />
+     <Compile Include="Assets\Scripts\MainMenu.cs" />
      <Compile Include="Assets\Scripts\ObstacleScript.cs" />
      <Compile Include="Assets\Scripts\PlayerControl.cs" />
      <Compile Include="Assets\Scripts\PowerupScript.cs" />
