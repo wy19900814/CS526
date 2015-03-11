@@ -125,7 +125,7 @@ public class PlayerControl : MonoBehaviour {
 		if (controller.transform.position.y <= 1.5f) {
 			animation.Play ("run");
 			
-			if(newPosition == leftPosition && controller.transform.position != leftPosition){
+			/*if(newPosition == leftPosition && controller.transform.position != leftPosition){
 				animation.Play ("idle");
 			}else if (newPosition == rightPosition && controller.transform.position != rightPosition) {
 				animation.Play ("idle");		
@@ -133,7 +133,7 @@ public class PlayerControl : MonoBehaviour {
 				animation.Play ("idle");
 			}else{
 				//keep running
-			}
+			}*/
 		}
 	}
 	
