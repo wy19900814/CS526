@@ -4,7 +4,7 @@ using System.Collections;
 
 public class PlayerControl : MonoBehaviour {
 	
-	private float TRACK_WIDTH = 1.2f;
+	private float TRACK_WIDTH = 2.6f;
 	private float Y_POSITION = 1.2f;
 	private float Z_POSITION = -7.0f;
 
@@ -64,40 +64,6 @@ public class PlayerControl : MonoBehaviour {
 		Vector3 rightPosition = new Vector3(TRACK_WIDTH, Y_POSITION, Z_POSITION );
 		
 		Debug.Log (controller.isGrounded);
-
-		#if UNITY_IOS
-		int fingerCount = 0;
-		foreach (Touch touch in Input.touches) {
-			if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled)
-				fingerCount++; 
-		}
-
-		if(Input.touchCount > 0){
-			if (fingerCount == 2){
-				//animation.Stop("run");
-				animation.Play("jump_pose");
-				//transform.Translate(Vector3.up * 90, Space.World)
-				jumpDirection.y = 16.0f;
-			
-				//controller.transform.Translate(Vector3.up * 5.0f); //add the jump height to the character
-				inJump = true;
-				return;
-			}
-			else if(fingerCount == 1){
-				if(Input.GetTouch(0).position.x > (Screen.height / 2)){
-					newPosition = rightPosition;
-				}
-				else{
-					newPosition = leftPosition;
-				}
-			}
-			else{
-				newPosition = middlePosition;
-			}
-		}
-		#endif
-
-
 		if (Input.GetButton ("Jump")) {          //play "Jump" animation if character is grounded and spacebar is pressed
 			//animation.Stop("run");
 			animation.Play("jump_pose");
@@ -125,7 +91,7 @@ public class PlayerControl : MonoBehaviour {
 		if (controller.transform.position.y <= 1.5f) {
 			animation.Play ("run");
 			
-			/*if(newPosition == leftPosition && controller.transform.position != leftPosition){
+			if(newPosition == leftPosition && controller.transform.position != leftPosition){
 				animation.Play ("idle");
 			}else if (newPosition == rightPosition && controller.transform.position != rightPosition) {
 				animation.Play ("idle");		
@@ -133,7 +99,7 @@ public class PlayerControl : MonoBehaviour {
 				animation.Play ("idle");
 			}else{
 				//keep running
-			}*/
+			}
 		}
 	}
 	

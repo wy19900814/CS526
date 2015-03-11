@@ -4,7 +4,7 @@ using System.Collections;
 public class GameControlScript : MonoBehaviour {
 	
 	public GUISkin skin;
-	float timeRemaining = 198f;
+	float timeRemaining = 10;
 	float timeExtension = 3f;
 	float timeDeduction = 2f;
 	float totalTimeElapsed = 0;
@@ -29,7 +29,7 @@ public class GameControlScript : MonoBehaviour {
 	
 	public void PowerupCollected()
 	{
-		score++;
+		timeRemaining += timeExtension;
 	}
 	
 	public void AlcoholCollected()
