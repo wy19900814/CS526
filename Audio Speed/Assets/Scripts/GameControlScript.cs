@@ -4,7 +4,7 @@ using System.Collections;
 public class GameControlScript : MonoBehaviour {
 	
 	public GUISkin skin;
-	float timeRemaining = 10;
+	float timeRemaining = 210;
 	float timeExtension = 3f;
 	float timeDeduction = 2f;
 	float totalTimeElapsed = 0;
@@ -20,7 +20,6 @@ public class GameControlScript : MonoBehaviour {
 			return;
 		
 		totalTimeElapsed += Time.deltaTime;
-		score = totalTimeElapsed*100;
 		timeRemaining -= Time.deltaTime;
 		if(timeRemaining <= 0){
 			isGameOver = true;
@@ -29,12 +28,12 @@ public class GameControlScript : MonoBehaviour {
 	
 	public void PowerupCollected()
 	{
-		timeRemaining += timeExtension;
+		score++;
 	}
 	
 	public void AlcoholCollected()
 	{
-		timeRemaining -= timeDeduction;
+		score--;
 	}
 	
 	void OnGUI()
