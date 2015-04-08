@@ -10,6 +10,9 @@ public class GameControlScript : MonoBehaviour {
 	float totalTimeElapsed = 0;
 	float score=0f;
 	public bool isGameOver = false;
+	public bool rotateCamera = false;
+
+	public CameraControlScript cameraController;
 	
 	void Start(){
 		Time.timeScale = 1;  // set the time scale to 1, to start the game world. This is needed if you restart the game from the game over menu
@@ -34,6 +37,11 @@ public class GameControlScript : MonoBehaviour {
 	public void AlcoholCollected()
 	{
 		score--;
+		Debug.Log (cameraController.startRotate);
+		if (!cameraController.startRotate) {
+			cameraController.startRotate = true;
+			Debug.Log ("dds" + cameraController.startRotate);
+		}
 	}
 	
 	void OnGUI()

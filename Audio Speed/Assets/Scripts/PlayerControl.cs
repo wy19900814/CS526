@@ -20,7 +20,7 @@ public class PlayerControl : MonoBehaviour {
 	public float jumpHight = 16.0f;
 	
 	//lerp example
-	public const float smooth = 0.5f;  //must be exact type as delta.time "const float" 
+	public const float smooth = 1.0f;  //must be exact type as delta.time "const float" 
 	public const float jumpSpeed = 0.05f;
 	private Vector3 newPosition;
 	
@@ -63,7 +63,7 @@ public class PlayerControl : MonoBehaviour {
 		Vector3 middlePosition = new Vector3(0.0f, Y_POSITION, Z_POSITION );
 		Vector3 rightPosition = new Vector3(TRACK_WIDTH, Y_POSITION, Z_POSITION );
 		
-		Debug.Log (controller.isGrounded);
+		//Debug.Log (controller.isGrounded);
 		
 		#if UNITY_IOS
 		int fingerCount = 0;
