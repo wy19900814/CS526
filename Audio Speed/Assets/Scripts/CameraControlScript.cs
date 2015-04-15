@@ -5,7 +5,7 @@ public class CameraControlScript : MonoBehaviour {
 
 	// Use this for initialization
 	GameObject pivot;
-	float timeRemaining = 7f;
+	float timeRemaining = 2f;
 	State curState = State.WAIT;
 	float turnSpeed = 50f;
 
@@ -27,6 +27,8 @@ public class CameraControlScript : MonoBehaviour {
 	void Update () 
 	{
 		Debug.Log(curState);
+		Debug.Log ("eulerAngles_y   " + transform.eulerAngles.y);
+		Debug.Log ("startRotate" + startRotate);
 		if (curState == State.WAIT) {
 			if(startRotate){
 				curState = State.ROTATE;
@@ -50,18 +52,20 @@ public class CameraControlScript : MonoBehaviour {
 			if(isCompleteRotateBack()){
 				timeRemaining = 7f;
 				startRotate = false;
-				Debug.Log ("ssssss" + startRotate);
 				curState = State.WAIT;
+
 			}
 			else{
 				RotateDelta ();
 			}
+
 		}
 
 	}
 
 	bool isCompleteRotate (){
-		if(transform.eulerAngles.y >= 180f){
+
+		if(transform.eulerAngles.y > 180f){
 			transform.eulerAngles.Set(transform.eulerAngles.x, 180f, transform.eulerAngles.z);
 			return true;
 		}
@@ -70,7 +74,8 @@ public class CameraControlScript : MonoBehaviour {
 	}
 
 	bool isCompleteRotateBack(){
-		if(transform.eulerAngles.y >= 358.9f){
+		if(transform.eulerAngles.y > 358.9f){
+			transform.Rotate (Vector3.up, turnSpeed * 0.035f);
 			transform.eulerAngles.Set(transform.eulerAngles.x, 0f, transform.eulerAngles.z);
 			return true;
 		}
