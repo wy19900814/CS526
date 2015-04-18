@@ -9,6 +9,9 @@ public class CameraControlScript : MonoBehaviour {
 	State curState = State.WAIT;
 	float turnSpeed = 50f;
 
+	public AudioClip mafia;
+	public AudioClip gonggong;
+
 	enum State{
 		WAIT,
 		ROTATE,
@@ -20,15 +23,12 @@ public class CameraControlScript : MonoBehaviour {
 
 
 	void Start () {
-		
+		AudioSource.PlayClipAtPoint(mafia,transform.position);
 	}
 
 	
 	void Update () 
 	{
-		Debug.Log(curState);
-		Debug.Log ("eulerAngles_y   " + transform.eulerAngles.y);
-		Debug.Log ("startRotate" + startRotate);
 		if (curState == State.WAIT) {
 			if(startRotate){
 				curState = State.ROTATE;

@@ -141,7 +141,8 @@ public class PlayerControl : MonoBehaviour {
 	{               
 		if(other.gameObject.name == "Powerup(Clone)")
 		{
-			Debug.Log ("Power up");
+
+			Debug.Log ("Power up" + " " + other.gameObject.GetComponent<PowerupScript>().getScore(1));
 			control.PowerupCollected();
 			audio.PlayOneShot(blurp);
 		}

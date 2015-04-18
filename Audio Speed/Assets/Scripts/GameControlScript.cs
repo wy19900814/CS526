@@ -13,9 +13,11 @@ public class GameControlScript : MonoBehaviour {
 	public bool rotateCamera = false;
 
 	public CameraControlScript cameraController;
-	
+
+
 	void Start(){
 		Time.timeScale = 1;  // set the time scale to 1, to start the game world. This is needed if you restart the game from the game over menu
+	
 	}
 	
 	void Update () { 

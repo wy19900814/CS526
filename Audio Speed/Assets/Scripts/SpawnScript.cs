@@ -9,6 +9,7 @@ public class SpawnScript : MonoBehaviour {
 	float timeElapsed = 0;
 	float spawnCycle = 0.5f * 2;
 	bool spawnPowerup = true;
+
 	float[] spawnTimes = {
 		0.7f, 0.9f, 1.1f, 1.3f,
 		3.0f, 3.2f, 3.4f, 3.6f,
@@ -252,7 +253,7 @@ public class SpawnScript : MonoBehaviour {
 		156.3f,
 		156.9f
 	};
-	int[] type = {1, 2, 1, 2, 
+	int[] obstacleType = {1, 2, 1, 2, 
 		1, 2, 1, 2, 
 		5, 
 		1, 2, 1, 2, 1, 2, 1, 2, 
@@ -277,62 +278,32 @@ public class SpawnScript : MonoBehaviour {
 		2, 2, 2, 2, 2, 1, 2, 1, 2, 1, 3, 3, 3, 1, 1, 2, 2, 1, 2, 2, 2, 1, 4, 4, 3, 3, 2, 2, 5, 2, 2, 2, 1, 1, 2, 1, 3, 4, 2, 1, 1, 2, 2, 2, 3, 4, 1, 1, 2, 1, 3, 1, 1, 3, 1, 1, 1, 2, 1, 1, 1, 2, 2, 1, 3, 2, 1, 3, 1, 2, 2, 1, 2, 1, 2, 1, 1, 3, 4, 3, 3, 4, 1, 1, 2, 2, 1, 3, 3, 1, 1, 1, 2, 2, 1, 1, 2, 2, 1, 5, 1, 2, 2, 2, 1, 1, 2, 1, 2, 2, 1, 1, 4, 4, 3, 3, 4, 3, 3, 4, 1, 2, 1, 1, 1, 2, 2, 1, 3, 3, 4, 4, 3, 3, 4, 1, 2, 2, 1, 1, 5, 2, 1, 1, 1, 2, 1, 2, 1, 2, 1, 1, 2, 1, 1, 2, 1, 2, 2, 1, 2, 1, 1, 2, 1, 1, 2, 2, 1, 2, 2, 1, 1, 2, 2, 1, 2, 2, 1, 3, 4, 2, 2, 5, 1, 2, 2, 1, 2, 1, 1, 2, 1, 1, 2, 1, 4, 3, 4, 3, 2, 1, 2, 1, 4, 3, 4, 3, 2};
 	
 	float POS = 1.6f;
+
+	/*
+
+
+
+
+
+	*/
 	
 	
 	void Start () {
-		/*float temp = Random.Range (0.45f, 0.46f);
-        for (int i =0; i< 100; i++) {
-            spawnTimes[i] = temp;
-            temp += Random.Range (0.45f, 0.46f) * 2;
-        }
-        int numberOfBeats = spawnTimes.Length;
-        spawnTimes = new float[numberOfBeats];
-        type = new int[numberOfBeats];
-
-        float temp = -0.1f;
-        for(int i = 0; i < numberOfBeats; i++){
-            spawnTimes[i] -= temp;
-        }*/
-		
-		
-		
 	}
-	/*
-    void Update () {
-        timeElapsed += Time.deltaTime;
-        if(timeElapsed > spawnCycle)
-        {
-            GameObject temp;
-            if(spawnPowerup)
-            {
-                temp = (GameObject)Instantiate(powerup);
-                Vector3 pos = temp.transform.position;
-                temp.transform.position = new Vector3(Random.Range(-3, 4), pos.y, pos.z);
-            }
-            else
-            {
-                temp = (GameObject)Instantiate(obstacle);
-                Vector3 pos = temp.transform.position;
-                temp.transform.position = new Vector3(Random.Range(-3, 4), pos.y, pos.z);
-            }
-            
-            timeElapsed -= spawnCycle;
-            spawnPowerup = !spawnPowerup;
-        }
-    }*/
+
 	void Update () {
 		timeElapsed += Time.deltaTime;
 		if (timeElapsed > spawnTimes[timeCount]) {
 			GameObject temp;
-			temp = type[timeCount] < 3 ? (GameObject) Instantiate (powerup) : (GameObject)Instantiate(obstacle);
+			temp = obstacleType[timeCount] < 3 ? (GameObject)Instantiate (powerup) : (GameObject)Instantiate(obstacle);
 			
 			Vector3 pos = temp.transform.position;
 			
-			if (type[timeCount] == 5){
+			if (obstacleType[timeCount] == 5){
 				temp.transform.position = new Vector3(0, pos.y, pos.z);
 			}
 			else{
-				temp.transform.position = new Vector3(POS * ((type[timeCount] == 1 || type[timeCount] == 3) ? -1 : 1.5f), pos.y, pos.z);
+				temp.transform.position = new Vector3(POS * ((obstacleType[timeCount] == 1 || obstacleType[timeCount] == 3) ? -1 : 1.5f), pos.y, pos.z);
 			}
 			timeCount ++;
 			if (timeCount == spawnTimes.Length) {
