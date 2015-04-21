@@ -19,7 +19,19 @@ public class GameControlScript : MonoBehaviour {
 		Time.timeScale = 1;  // set the time scale to 1, to start the game world. This is needed if you restart the game from the game over menu
 	
 	}
-	
+
+	public void addScore(int delta){
+		score += delta;
+	}
+
+	public void addTime(int delta){
+		timeRemaining += delta;
+	}
+
+	public float getTime (){
+		return timeRemaining;
+	}
+
 	void Update () { 
 		if(isGameOver)
 			return;
@@ -33,7 +45,7 @@ public class GameControlScript : MonoBehaviour {
 	
 	public void PowerupCollected()
 	{
-		score++;
+		//score++;
 	}
 	
 	public void AlcoholCollected()

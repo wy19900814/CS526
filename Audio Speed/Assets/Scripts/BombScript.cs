@@ -1,15 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BombScript : MonoBehaviour {
+public class BombScript : PowerDownScript {
+	int score = -100;
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+
+	public override void getEffects (GameControlScript gc){
+		gc.addTime ((int)(-1 * gc.getTime()));
+		gc.addScore (score);
 	}
 }

@@ -139,10 +139,10 @@ public class PlayerControl : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other)
 	{               
-		if(other.gameObject.name == "Powerup(Clone)")
+		/*if(other.gameObject.name == "Powerup(Clone)")
 		{
 
-			Debug.Log ("Power up" + " " + other.gameObject.GetComponent<PowerupScript>().getScore(1));
+			other.gameObject.GetComponent<ItemScript>().getEffects(control);
 			control.PowerupCollected();
 			audio.PlayOneShot(blurp);
 		}
@@ -151,7 +151,8 @@ public class PlayerControl : MonoBehaviour {
 			Debug.Log ("Power down");
 			control.AlcoholCollected();
 			audio.PlayOneShot(bloop);
-		}
+		}*/
+		other.gameObject.GetComponent<ItemScript>().getEffects(control);
 		
 		Destroy(other.gameObject);
 		

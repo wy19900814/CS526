@@ -2,8 +2,11 @@
 using System.Collections;
 
 public class SpawnScript : MonoBehaviour {
-	public GameObject powerup;
+	public GameObject star;
 	public GameObject obstacle;
+	public GameObject clock;
+	public GameObject shield;
+	public GameObject bomb;
 	
 	private int timeCount = 0;
 	float timeElapsed = 0;
@@ -295,7 +298,15 @@ public class SpawnScript : MonoBehaviour {
 		timeElapsed += Time.deltaTime;
 		if (timeElapsed > spawnTimes[timeCount]) {
 			GameObject temp;
-			temp = obstacleType[timeCount] < 3 ? (GameObject)Instantiate (powerup) : (GameObject)Instantiate(obstacle);
+			//temp = obstacleType[timeCount] < 3 ? (GameObject)Instantiate (star) : (GameObject)Instantiate(obstacle);
+
+			switch(obstacleType[timeCount]){
+			case 1: temp = (GameObject)Instantiate(star);break;
+			case 2: temp = (GameObject)Instantiate(obstacle);break;
+			case 3: temp = (GameObject)Instantiate(bomb);break;
+			case 4: temp = (GameObject)Instantiate(clock);break;
+			default: temp = (GameObject)Instantiate(shield);break;
+			}
 			
 			Vector3 pos = temp.transform.position;
 			

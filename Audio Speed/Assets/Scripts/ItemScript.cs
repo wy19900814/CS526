@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ItemScript : MonoBehaviour {
+abstract public class ItemScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+	public float objectSpeed = -0.5f;
 	
-	}
-	
-	// Update is called once per frame
 	void Update () {
-	
+		transform.Translate(0, 0, objectSpeed);
 	}
+	
+	void Start(){
+
+	}
+
+	abstract public void getEffects(GameControlScript gc);
 }

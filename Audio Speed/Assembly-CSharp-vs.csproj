@@ -48,6 +48,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\BombScript.cs" />
      <Compile Include="Assets\Scripts\CameraControlScript.cs" />
+     <Compile Include="Assets\Scripts\ClockScript.cs" />
      <Compile Include="Assets\Scripts\GameControlScript.cs" />
      <Compile Include="Assets\Scripts\GroundControl.cs" />
      <Compile Include="Assets\Scripts\ItemScript.cs" />
@@ -55,8 +56,11 @@
      <Compile Include="Assets\Scripts\ObstacleScript.cs" />
      <Compile Include="Assets\Scripts\PauseMenuScript.cs" />
      <Compile Include="Assets\Scripts\PlayerControl.cs" />
+     <Compile Include="Assets\Scripts\PowerDownScript.cs" />
      <Compile Include="Assets\Scripts\PowerupScript.cs" />
+     <Compile Include="Assets\Scripts\ShieldScript.cs" />
      <Compile Include="Assets\Scripts\SpawnScript.cs" />
+     <Compile Include="Assets\Scripts\StarScript.cs" />
      <Compile Include="Assets\Scripts\TriggerZoneScript.cs" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>/Users/student/git/CS526/Audio Speed/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
