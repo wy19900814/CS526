@@ -153,7 +153,7 @@ public class PlayerControl : MonoBehaviour {
 			audio.PlayOneShot(bloop);
 		}*/
 		other.gameObject.GetComponent<ItemScript>().getEffects(control);
-		
+
 		Destroy(other.gameObject);
 		
 	}

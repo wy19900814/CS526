@@ -1,8 +1,10 @@
 -debug
 -target:library
 -nowarn:0169
--out:'Temp/Assembly-CSharp-firstpass.dll'
+-out:'Temp/Assembly-CSharp.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEngine.dll'
+-r:'Library/ScriptAssemblies/Assembly-CSharp-firstpass.dll'
+-r:'Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Managed/UnityEditor.dll'
 -define:UNITY_4_5_2
 -define:UNITY_4_5
@@ -38,6 +40,21 @@
 -define:UNITY_EDITOR_OSX
 -define:UNITY_TEAM_LICENSE
 -define:UNITY_PRO_LICENSE
-'Assets/Standard Assets/Character Controllers/Sources/Scripts/MouseLook.cs'
+'Assets/Scripts/BombScript.cs'
+'Assets/Scripts/CameraControlScript.cs'
+'Assets/Scripts/ClockScript.cs'
+'Assets/Scripts/GameControlScript.cs'
+'Assets/Scripts/GroundControl.cs'
+'Assets/Scripts/ItemScript.cs'
+'Assets/Scripts/MainMenu.cs'
+'Assets/Scripts/ObstacleScript.cs'
+'Assets/Scripts/PauseMenuScript.cs'
+'Assets/Scripts/PlayerControl.cs'
+'Assets/Scripts/PowerDownScript.cs'
+'Assets/Scripts/PowerupScript.cs'
+'Assets/Scripts/ShieldScript.cs'
+'Assets/Scripts/SpawnScript.cs'
+'Assets/Scripts/StarScript.cs'
+'Assets/Scripts/TriggerZoneScript.cs'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Runtime.Serialization.dll'
 -r:'/Applications/Unity/Unity.app/Contents/Frameworks/Mono/lib/mono/unity/System.Xml.Linq.dll'

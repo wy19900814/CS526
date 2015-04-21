@@ -42,6 +42,7 @@
 -define:UNITY_PRO_LICENSE
 'Assets/Scripts/BombScript.cs'
 'Assets/Scripts/CameraControlScript.cs'
+'Assets/Scripts/ClockScript.cs'
 'Assets/Scripts/GameControlScript.cs'
 'Assets/Scripts/GroundControl.cs'
 'Assets/Scripts/ItemScript.cs'
@@ -51,6 +52,7 @@
 'Assets/Scripts/PlayerControl.cs'
 'Assets/Scripts/PowerDownScript.cs'
 'Assets/Scripts/PowerupScript.cs'
+'Assets/Scripts/ShieldScript.cs'
 'Assets/Scripts/SpawnScript.cs'
 'Assets/Scripts/StarScript.cs'
 'Assets/Scripts/TriggerZoneScript.cs'
