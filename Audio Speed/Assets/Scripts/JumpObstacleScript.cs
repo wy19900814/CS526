@@ -8,7 +8,7 @@ public class JumpObstacleScript : PowerDownScript {
 	public override void getEffects (GameControlScript gc){
 		gc.addScore (score);
 		gc.addTime (time);
-		if (!gc.cameraController.startRotate) {
+		if (!gc.cameraController.startRotate && (challengeScript.rotationflag > 0)) {
 			gc.cameraController.startRotate = true;
 		}
 	}

@@ -23,7 +23,11 @@ public class CameraControlScript : MonoBehaviour {
 
 
 	void Start () {
-		AudioSource.PlayClipAtPoint(mafia,transform.position);
+		// Music Play is major in this place
+		switch (musicScript.musicflag){
+			case 0: AudioSource.PlayClipAtPoint(mafia,transform.position); break;
+			case 1: AudioSource.PlayClipAtPoint(gonggong,transform.position); break;
+		}
 	}
 
 	

@@ -55,11 +55,11 @@ public class musicScript : MonoBehaviour {
     }
     void OnMouseUp() {
         if (this.name == "txt_music1") {
-			musicflag = 1;
+			musicflag = 0;
 			Application.LoadLevel(3);
 		}
 		if (this.name == "txt_music2") {
-			musicflag = 2;
+			musicflag = 1;
 			Application.LoadLevel(3);
 		}
 		if (this.name == "txt_done") {
