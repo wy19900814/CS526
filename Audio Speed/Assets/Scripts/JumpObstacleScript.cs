@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BombScript : PowerDownScript {
-	int score = -100;
-
+public class JumpObstacleScript : PowerDownScript {
+	int score = -2;
+	int time = -10;
 
 	public override void getEffects (GameControlScript gc){
-		gc.addTime ((int)(-1 * gc.getTime()));
 		gc.addScore (score);
+		gc.addTime (time);
+		if (!gc.cameraController.startRotate) {
+			gc.cameraController.startRotate = true;
+		}
 	}
 
 	void Update () {

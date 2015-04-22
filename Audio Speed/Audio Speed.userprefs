@@ -1,24 +1,10 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MainMenu.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/PillarObstacleScript.cs">
     <Files>
-      <File FileName="Assets/Scripts/BombScript.cs" Line="4" Column="1" />
-      <File FileName="Assets/Scripts/PowerupScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ItemScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ObstacleScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/StarScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GameControlScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PowerDownScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/SpawnScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PlayerControl.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/CameraControlScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/MainMenu.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/PauseMenuScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/GroundControl.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/ShieldScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/textControlScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/challengeScript.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/musicScript.cs" Line="39" Column="6" />
+      <File FileName="Assets/Scripts/StarScript.cs" Line="12" Column="1" />
+      <File FileName="Assets/Scripts/JumpObstacleScript.cs" Line="19" Column="2" />
+      <File FileName="Assets/Scripts/PillarObstacleScript.cs" Line="17" Column="24" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

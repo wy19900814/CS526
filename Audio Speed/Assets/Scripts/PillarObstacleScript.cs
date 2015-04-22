@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ObstacleScript : PowerDownScript {
+public class PillarObstacleScript : PowerDownScript {
 	int score = -2;
 	int time = -10;
 
@@ -13,7 +13,7 @@ public class ObstacleScript : PowerDownScript {
 		}
 	}
 
-	void Start(){
-		transform.localScale += new Vector3(0.12f, 0f, 0f);
+	void Update () {
+		transform.Translate(0, 0, objectSpeed);
 	}
 }

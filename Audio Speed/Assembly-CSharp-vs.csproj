@@ -52,9 +52,10 @@
      <Compile Include="Assets\Scripts\GameControlScript.cs" />
      <Compile Include="Assets\Scripts\GroundControl.cs" />
      <Compile Include="Assets\Scripts\ItemScript.cs" />
+     <Compile Include="Assets\Scripts\JumpObstacleScript.cs" />
      <Compile Include="Assets\Scripts\MainMenu.cs" />
-     <Compile Include="Assets\Scripts\ObstacleScript.cs" />
      <Compile Include="Assets\Scripts\PauseMenuScript.cs" />
+     <Compile Include="Assets\Scripts\PillarObstacleScript.cs" />
      <Compile Include="Assets\Scripts\PlayerControl.cs" />
      <Compile Include="Assets\Scripts\PowerDownScript.cs" />
      <Compile Include="Assets\Scripts\PowerupScript.cs" />

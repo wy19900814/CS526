@@ -9,4 +9,7 @@ public class StarScript : PowerupScript {
 		gc.addScore (score);
 	}
 
+	void Update () {
+		transform.Translate(0, objectSpeed, 0);
+	}
 }

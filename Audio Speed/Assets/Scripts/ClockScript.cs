@@ -7,4 +7,8 @@ public class ClockScript : PowerupScript {
 	public override void getEffects (GameControlScript gc){
 		gc.addTime (time);
 	}
+
+	void Update () {
+		transform.Translate(0, 0, -objectSpeed);
+	}
 }
