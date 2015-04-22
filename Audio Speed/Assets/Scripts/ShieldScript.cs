@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShieldScript : MonoBehaviour {
+public class ShieldScript : PowerupScript {
+	int score = 2;
 
-	// Use this for initialization
-	void Start () {
-	
+	public override void getEffects (GameControlScript gc){
+		gc.addScore (score);
 	}
 	
 	// Update is called once per frame
 	void Update () {
-	
+		transform.Translate(0, -objectSpeed, 0);
 	}
 }

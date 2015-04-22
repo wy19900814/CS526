@@ -14,9 +14,9 @@ public class SpawnScript : MonoBehaviour {
 	bool spawnPowerup = true;
 
 	float[] spawnTimes = {
-		//0.7f, 
-		//0.9f,
-		/*1.0f, 
+		0.7f, 
+		0.9f,
+		1.0f, 
 		1.8f,
 		3.9f,
 		4.3f,
@@ -36,22 +36,22 @@ public class SpawnScript : MonoBehaviour {
 		9.1f, 
 		9.4f, 
 		9.8f,
-		9.9f,*/
+		9.9f,
 		8.9f, 
-	/*	10.3f,
-		10.6f,*/
-	//	10.1f,
-		//11.3f,
-		//11.4f,
-		//11.6f,
-		//11.8f,
-		//11.9f,
-		//12.0f,*/
-		//12.3f,
+		10.3f,
+		10.6f,
+		10.1f,
+		11.3f,
+		11.4f,
 		11.6f,
-		11.8f
-		//13.9f,
-	/*	14.0f,
+		11.8f,
+		11.9f,
+		12.0f,
+		12.3f,
+		11.6f,
+		11.8f,
+		13.9f,
+		14.0f,
 		14.8f,
 		15.0f,
 		15.7f,
@@ -60,8 +60,8 @@ public class SpawnScript : MonoBehaviour {
 		16.0f,
 		16.1f,
 		16.3f,
-		16.5f
-		/*19.9f,
+		16.5f,
+		19.9f,
 		20.5f,
 		21.1f,
 		21.8f,
@@ -283,7 +283,7 @@ public class SpawnScript : MonoBehaviour {
 		155.0f,
 		155.7f,
 		156.3f,
-		156.9f*/
+		156.9f
 	};
 	int[] obstacleType = {
 		1, 
@@ -332,7 +332,7 @@ public class SpawnScript : MonoBehaviour {
 		1, 
 		1,
 		1, 
-		1/*, 
+		1,
 		2, 
 		2, 
 		2, 
@@ -539,20 +539,12 @@ public class SpawnScript : MonoBehaviour {
 		3, 
 		4, 
 		3, 
-		2*/};
+		2};
 
 
 
 	float POS = 1.6f;
 
-	/*
-
-
-
-
-
-	*/
-	
 	
 	void Start () {
 	}
