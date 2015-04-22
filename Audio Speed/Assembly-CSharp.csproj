@@ -62,6 +62,9 @@
      <Compile Include="Assets\Scripts\SpawnScript.cs" />
      <Compile Include="Assets\Scripts\StarScript.cs" />
      <Compile Include="Assets\Scripts\TriggerZoneScript.cs" />
+     <Compile Include="Assets\Scripts\challengeScript.cs" />
+     <Compile Include="Assets\Scripts\musicScript.cs" />
+     <Compile Include="Assets\Scripts\textControlScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">

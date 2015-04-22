@@ -1,23 +1,24 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/SpawnScript.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MainMenu.cs">
     <Files>
       <File FileName="Assets/Scripts/BombScript.cs" Line="4" Column="1" />
-      <File FileName="Assets/Scripts/PowerupScript.cs" Line="4" Column="36" />
-      <File FileName="Assets/Scripts/ItemScript.cs" Line="16" Column="56" />
-      <File FileName="Assets/Scripts/ObstacleScript.cs" Line="8" Column="57" />
-      <File FileName="Assets/Scripts/StarScript.cs" Line="7" Column="33" />
-      <File FileName="Assets/Scripts/GameControlScript.cs" Line="55" Column="39" />
-      <File FileName="Assets/Scripts/PowerDownScript.cs" Line="5" Column="3" />
-      <File FileName="Assets/Scripts/SpawnScript.cs" Line="72" Column="9" />
-      <File FileName="Assets/Scripts/PlayerControl.cs" Line="156" Column="3" />
-      <File FileName="Assets/Scripts/ClockScript.cs" Line="7" Column="33" />
-      <File FileName="Assets/Scripts/TriggerZoneScript.cs" Line="18" Column="3" />
-      <File FileName="Assets/Scripts/CameraControlScript.cs" Line="7" Column="2" />
-      <File FileName="Assets/Scripts/MainMenu.cs" Line="15" Column="46" />
+      <File FileName="Assets/Scripts/PowerupScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ItemScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/ObstacleScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/StarScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/GameControlScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PowerDownScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/SpawnScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/PlayerControl.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CameraControlScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/MainMenu.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/PauseMenuScript.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/GroundControl.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/ShieldScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/textControlScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/challengeScript.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/musicScript.cs" Line="39" Column="6" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
