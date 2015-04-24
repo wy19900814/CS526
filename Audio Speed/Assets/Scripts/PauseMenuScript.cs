@@ -48,7 +48,8 @@ public class PauseMenuScript : MonoBehaviour
 			}
 			
 			if (GUI.Button(new Rect(Screen.width/4+10, Screen.height/4+3*Screen.height/10+10, Screen.width/2-20, Screen.height/10), "MAIN MENU")){
-				Application.LoadLevel(levelToLoad);
+				paused = false;
+				Application.LoadLevel(0);
 			} 
 		}
 	}

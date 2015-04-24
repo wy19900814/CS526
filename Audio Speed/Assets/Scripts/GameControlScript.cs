@@ -33,7 +33,7 @@ public class GameControlScript : MonoBehaviour {
 	}
 
 	void Update () { 
-		if(isGameOver)
+		if (isGameOver)
 			return;
 		
 		totalTimeElapsed += Time.deltaTime;
@@ -64,7 +64,7 @@ public class GameControlScript : MonoBehaviour {
 		//check if game is not over, if so, display the score and the time left
 		if(!isGameOver)    
 		{
-			GUI.Label(new Rect(10, 10, Screen.width/5, Screen.height/6),"TIME LEFT: "+((int)timeRemaining).ToString());
+			if (challengeScript.timeflag > 0) {GUI.Label(new Rect(10, 10, Screen.width/5, Screen.height/6),"TIME LEFT: "+((int)timeRemaining).ToString());}
 			GUI.Label(new Rect(Screen.width-(Screen.width/6), 10, Screen.width/6, Screen.height/6), "SCORE: "+((int)score).ToString());
 		}
 		//if game over, display game over menu with score
@@ -82,7 +82,8 @@ public class GameControlScript : MonoBehaviour {
 			
 			//load the main menu, which as of now has not been created
 			if (GUI.Button(new Rect(Screen.width/4+10, Screen.height/4+2*Screen.height/10+10, Screen.width/2-20, Screen.height/10), "MAIN MENU")){
-				Application.LoadLevel(1);
+				Time.timeScale = 1;
+				Application.LoadLevel(0);
 			}
 			
 			//exit the game

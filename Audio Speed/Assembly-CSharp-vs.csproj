@@ -46,6 +46,7 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Fantasy Skybox FREE\Scripts\FSPlayer.cs" />
      <Compile Include="Assets\Scripts\BombScript.cs" />
      <Compile Include="Assets\Scripts\CameraControlScript.cs" />
      <Compile Include="Assets\Scripts\ClockScript.cs" />
@@ -66,6 +67,7 @@
      <Compile Include="Assets\Scripts\challengeScript.cs" />
      <Compile Include="Assets\Scripts\musicScript.cs" />
      <Compile Include="Assets\Scripts\textControlScript.cs" />
+     <None Include="Assets\Fantasy Skybox FREE\Readme\Readme.txt" />
  <Reference Include="Assembly-UnityScript-firstpass">
  <HintPath>/Users/student/git/CS526/Audio Speed/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
