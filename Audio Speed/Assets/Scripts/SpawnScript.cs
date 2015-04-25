@@ -34,9 +34,13 @@ public class SpawnScript : MonoBehaviour {
 		obstacleType = new List<List<int>>();
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 		musicTotalTime = new List<float>{210f, 300f};
 
+=======
+		// big big bang
+>>>>>>> FETCH_HEAD
 =======
 		// big big bang
 >>>>>>> FETCH_HEAD
