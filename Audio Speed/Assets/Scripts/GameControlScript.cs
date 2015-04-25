@@ -13,11 +13,17 @@ public class GameControlScript : MonoBehaviour {
 	public bool rotateCamera = false;
 
 	public CameraControlScript cameraController;
-
+	public PlayerControl playerController;
+	
 
 	void Start(){
 		Time.timeScale = 1;  // set the time scale to 1, to start the game world. This is needed if you restart the game from the game over menu
-	
+		if (challengeScript.timeflag > 0) {
+			timeRemaining = 20;
+		} 
+		else {
+			timeRemaining = SpawnScript.musicTotalTime [musicScript.musicflag];
+		}
 	}
 
 	public void addScore(int delta){
@@ -64,7 +70,7 @@ public class GameControlScript : MonoBehaviour {
 		//check if game is not over, if so, display the score and the time left
 		if(!isGameOver)    
 		{
-			if (challengeScript.timeflag > 0) {GUI.Label(new Rect(10, 10, Screen.width/5, Screen.height/6),"TIME LEFT: "+((int)timeRemaining).ToString());}
+			GUI.Label(new Rect(10, 10, Screen.width/5, Screen.height/6),"TIME LEFT: "+((int)timeRemaining).ToString());
 			GUI.Label(new Rect(Screen.width-(Screen.width/6), 10, Screen.width/6, Screen.height/6), "SCORE: "+((int)score).ToString());
 		}
 		//if game over, display game over menu with score

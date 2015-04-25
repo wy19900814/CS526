@@ -16,23 +16,33 @@ public class SpawnScript : MonoBehaviour {
 	bool spawnPowerup = true;
 
 	/* music name definition
-	 * Music 1: The Big Bang
-	 * Music 2: Gong Gong
+	 * Music 0: The Big Bang
+	 * Music 1: Gong Gong
 	 * */
 	List<List<float>> musicTime;	// Beat time
 	List<List<int>> obstacleType;	// obstacle type
-	List<int> musicTotalTime;		// total time of a music
+	public static List<float> musicTotalTime;		// total time of a music
 	List<int> musicTotalBeats;
-	List<float> POS;				// for each music the time of first beat might not be correct, we need to make some adjustment for the first beat
+	List<float> pos;				// for each music the time of first beat might not be correct, we need to make some adjustment for the first beat
 
-	void Start () {
+	void Start() {
 		timeCount = 0;
 		// These are the initializers!!
-		musicTotalBeats = new List<int> (){200, 10};
-		POS = new List<float> (){0.1f, 0.2f};
+		musicTotalBeats = new List<int> (){200, 119};
+		pos = new List<float> (){0.1f, 0.0f};
 		musicTime = new List<List<float>>();
 		obstacleType = new List<List<int>>();
+<<<<<<< HEAD
+<<<<<<< HEAD
 
+		musicTotalTime = new List<float>{210f, 300f};
+
+=======
+		// big big bang
+>>>>>>> FETCH_HEAD
+=======
+		// big big bang
+>>>>>>> FETCH_HEAD
 		musicTime.Add (new List<float> (){
 			0.7f, 
 			0.9f,
@@ -305,19 +315,143 @@ public class SpawnScript : MonoBehaviour {
 			156.3f,
 			156.9f
 		});
-		// song 2
+		// gong gong
 		musicTime.Add (new List<float> (){
-			4.5f,
-			5.0f,
-			5.5f,
-			6.0f,
-			6.5f,
-			7.0f,
-			7.5f,
-			8.0f,
-			8.5f,
-			9.0f,
+			12.6f,//*** gong  gong gong gong
+			12.75f,
+			13.5f,
+			13.7f,
+			14.4f,
+			14.7f,//end
+
+			16.3f,//** as fast as possible
+			16.4f,
+			16.5f,
+			16.6f,
+			16.7f,
+			16.8f,
+			16.9f,
+			17.0f,
+			17.1f,
+			17.2f,
+			17.3f,
+			17.4f,
+			17.5f,
+			17.6f,
+			17.7f,
+			17.8f,
+			17.9f,
+			18.0f,
+			18.1f,
+			18.2f,
+			18.3f,
+			18.4f,
+			18.5f,
+			18.6f,
+			18.7f,
+			18.8f,
+			18.9f,
+			19.0f,
+			19.1f,
+			19.2f,
+			19.3f,
+			19.4f,
+			19.5f,
+			19.6f,
+			19.7f,
+			19.8f,
+			19.9f,
+			20.0f,
+			20.1f,
+			20.2f,
+			20.3f,
+			20.4f,
+			20.5f,
+			20.6f,
+			20.7f,
+			20.8f,
+			20.9f,
+			21.0f,
+			21.1f,
+			21.2f,
+			21.3f,
+			21.4f,
+			21.5f,
+			21.6f,
+			21.7f,
+			21.8f,
+			21.9f,
+			22.0f,
+			22.1f,
+			22.2f,
+			22.3f,
+			22.4f,
+			22.5f,
+			22.6f,
+			22.7f,
+			22.8f,
+			22.9f,
+			23.0f,//END
+
+			23.7f,//***  5 points a beating loop: X OO OO There are total 2.5 loops.
+			24.1f,//** interval values: 0.4 0.2 0.6 0.2 
+			24.3f,
+			24.9f,
+			25.1f,//END
+			25.6f,//*** interval between loop is 0.5
+			26.0f,
+			26.2f,
+			26.8f,
+			27.0f,//END
+			27.5f,//***
+			27.9f,
+			28.1f,
+			28.7f,
+			28.9f,
+			29.3f,
+			29.7f,
+			29.9f,//END
+		    
+			30.6f,//*** gongong he has head pain *** 3 loops--a b c
+			30.7f,//*** intervals in loop: a 0.1+0.2+0.2+0.5+0.2 
+			30.9f,
+			31.1f,
+			31.6f,
+			31.8f,//***
+				  //*** interval between loop is 0.6
+			32.4f,//*** b 0.2+0.2+0.2+0.5+0.2
+			32.6f,//*** gongong he has head pain ***
+			32.8f,
+			33.0f,
+			33.5f,
+			33.7f,//***
+
+			34.3f,//*** c 0.2+0.2+0.2+0.5+0.2
+			34.5f,//*** says money is not enough ***
+			34.7f,
+			34.9f,
+			35.4f,
+			35.6f,//*** END
+
+
+			36.0f,//*** gonggonggonggonggonggonggonggong
+			36.2f,
+			36.6f,
+			36.9f,
+			37.2f,
+			37.5f,
+			37.8f,//*** END
+			38.1f,
+			38.4f,
+			38.6f
+			//10
+
+
 		});
+		for (int i = 0; i < musicTime.Count; i++) {
+			musicTime[musicScript.musicflag][i] += pos[musicScript.musicflag];
+		}
+
 		obstacleType.Add (new List<int> (){
 				1, 
 				1, 
@@ -576,14 +710,159 @@ public class SpawnScript : MonoBehaviour {
 
 		obstacleType.Add (new List<int> (){
 			1,
-			2,
+			1,
+			1,
+			1,
+			1,
+			1,
+
+			1,
 			3,
-			4,
-			5,
-			6,
-			7,
-			8,
-			9,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+			1,
+			3,
+
+
+
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+
+
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+		
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
+			1,
 			1
 		});
 	}
@@ -602,7 +881,7 @@ public class SpawnScript : MonoBehaviour {
 			 * 9: shield, random position
 			 * */
 			switch(obstacleType[musicScript.musicflag][timeCount]){
-				case 1: case 2: case 3: temp = (GameObject)Instantiate(star);break;
+				case 1: case 2: case 3: temp = (GameObject)Instantiate(shield);break;
 				case 4: case 5: temp = (GameObject)Instantiate(pillarObstacle);break;
 				case 6: temp = (GameObject)Instantiate(jumpObstacle);break;
 				// about case 7 and case 8, if the flag is not activate, we make it as regular elements

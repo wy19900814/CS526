@@ -6,6 +6,12 @@ public class ShieldScript : PowerupScript {
 
 	public override void getEffects (GameControlScript gc){
 		gc.addScore (score);
+		gc.playerController.invincible = true;
+		startInvincibleEffect (gc.playerController);
+	}
+
+	void startInvincibleEffect(PlayerControl pc){
+		pc.animation.Play ("jump_pose");
 	}
 	
 	// Update is called once per frame

@@ -6,7 +6,7 @@ public class BombScript : PowerDownScript {
 
 
 	public override void getEffects (GameControlScript gc){
-		gc.addTime ((int)(-1 * gc.getTime()));
+		gc.addTime ((int)(-1 * gc.getTime() - 1));
 		gc.addScore (score);
 	}
 

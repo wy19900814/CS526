@@ -23,7 +23,10 @@ public class PlayerControl : MonoBehaviour {
 	public const float smooth = 1.0f;  //must be exact type as delta.time "const float" 
 	public const float jumpSpeed = 0.05f;
 	private Vector3 newPosition;
-	
+	public bool invincible = false;
+	private float invincible_timeRemaining = 5f;
+
+
 	//audios
 	public AudioClip bloop;
 	public AudioClip blurp;
@@ -32,9 +35,25 @@ public class PlayerControl : MonoBehaviour {
 		controller = GetComponent<CharacterController>();
 		newPosition = controller.transform.position;
 	}
-	
+
+	void stopInvincibleEffect(){
+		animation.Play ("run");
+	}
+
 	// Update is called once per frame
 	void Update (){
+		if(invincible){
+			if(invincible_timeRemaining < 0){
+				invincible = false;
+				invincible_timeRemaining = 5f;
+				stopInvincibleEffect();
+			}
+			else{
+				invincible_timeRemaining -= Time.deltaTime;
+			}
+		}
+
+
 		if (!inJump) {
 			PositionChanging ();
 		} else {
@@ -122,7 +141,7 @@ public class PlayerControl : MonoBehaviour {
 		
 		//change character animation
 		
-		if (controller.transform.position.y <= 1.5f) {
+		if (!invincible && controller.transform.position.y <= 1.5f) {
 			animation.Play ("run");
 			
 			/*if(newPosition == leftPosition && controller.transform.position != leftPosition){
@@ -152,7 +171,12 @@ public class PlayerControl : MonoBehaviour {
 			control.AlcoholCollected();
 			audio.PlayOneShot(bloop);
 		}*/
-		other.gameObject.GetComponent<ItemScript>().getEffects(control);
+		Debug.Log ("Object Script" + other.gameObject.GetComponent<PowerupScript> ());
+
+		if (!invincible || (invincible && (other.gameObject.GetComponent<PowerupScript> () != null))) {
+			other.gameObject.GetComponent<ItemScript> ().getEffects (control);
+		} 
+	
 
 		Destroy(other.gameObject);
 		
