@@ -32,21 +32,10 @@ public class SpawnScript : MonoBehaviour {
 		pos = new List<float> (){0.1f, 0.0f};
 		musicTime = new List<List<float>>();
 		obstacleType = new List<List<int>>();
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 
 		musicTotalTime = new List<float>{210f, 300f};
 
-=======
-		// big big bang
->>>>>>> FETCH_HEAD
-=======
-		// big big bang
->>>>>>> FETCH_HEAD
-=======
-		// big big bang
->>>>>>> FETCH_HEAD
 		musicTime.Add (new List<float> (){
 			0.7f, 
 			0.9f,

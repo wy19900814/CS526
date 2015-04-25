@@ -76,7 +76,7 @@ public class GameControlScript : MonoBehaviour {
 		//if game over, display game over menu with score
 		else
 		{
-			Time.timeScale = 0; //set the timescale to zero so as to stop the game world
+			//Time.timeScale = 0; //set the timescale to zero so as to stop the game world
 			
 			//display the final score
 			GUI.Box(new Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "GAME OVER\nYOUR SCORE: "+(int)score);
