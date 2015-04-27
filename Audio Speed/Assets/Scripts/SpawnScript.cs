@@ -874,7 +874,7 @@ public class SpawnScript : MonoBehaviour {
 			 * 9: shield, random position
 			 * */
 			switch(obstacleType[musicScript.musicflag][timeCount]){
-				case 1: case 2: case 3: temp = (GameObject)Instantiate(shield);break;
+				case 1: case 2: case 3: temp = (GameObject)Instantiate(star);break;
 				case 4: case 5: temp = (GameObject)Instantiate(pillarObstacle);break;
 				case 6: temp = (GameObject)Instantiate(jumpObstacle);break;
 				// about case 7 and case 8, if the flag is not activate, we make it as regular elements
