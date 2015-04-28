@@ -4,11 +4,10 @@ using System.Collections.Generic;
 
 public class SpawnScript : MonoBehaviour {
 	public GameObject star;
-	public GameObject pillarObstacle;
+	public GameObject obstacle;
 	public GameObject clock;
 	public GameObject shield;
 	public GameObject bomb;
-	public GameObject jumpObstacle;
 	
 	private int timeCount = 0;
 	float timeElapsed = 0;
@@ -796,28 +795,28 @@ public class SpawnScript : MonoBehaviour {
 				3, 
 				2,
 				2,
-				4, 
-				4, 
-				5, 
-				5, 
-				6, 
-				6, 
-				7, 
-				8, 
-				9, 
 				1, 
 				1, 
+				2, 
+				2, 
+				3, 
+				3, 
+				1, 
+				1, 
+				2, 
+				2, 
+				3, 
 				3, 
 				3, 
 				2, 
 				2, 
-				4,
-				4,
-				5,
-				5,
-				6,
-				6,
-				7,
+				1,
+				1,
+				2,
+				2,
+				3,
+				3,
+				3,
 				8,
 				9, 
 				1,
@@ -829,39 +828,39 @@ public class SpawnScript : MonoBehaviour {
 				1,
 				1,
 				1, 
-				1, 
-				1, 
-				1, 
-				1, 
-				1, 
-				1,
-				1, 
-				1,
-				2, 
-				2, 
-				2, 
-				1, 
-				2,
-				1,
-				2,
-				1, 
-				3, 
-				3, 
-				3, 
-				1, 
-				1, 
-				2,
-				2, 
-				1, 
-				2, 
-				2, 
-				2, 
-				1, 
 				4, 
 				4, 
-				3, 
-				3,
-				2, 
+				4, 
+				5, 
+				5, 
+				5,
+				6, 
+				6,
+				6, 
+				6, 
+				6, 
+				6, 
+				5,
+				5,
+				5,
+				5, 
+				5, 
+				5, 
+				4, 
+				4, 
+				4, 
+				4,
+				6, 
+				6, 
+				6, 
+				6, 
+				6, 
+				6, 
+				6, 
+				6, 
+				6, 
+				6,
+				6, 
 				2, 
 				5, 
 				2, 
@@ -1531,23 +1530,21 @@ public class SpawnScript : MonoBehaviour {
 
 			/* Obstacle Type definition
 			 * 1, 2, 3: left, mid, right of stars
-			 * 4, 5: left, right of pillarObstacles
-			 * 6: JumpObstacles, only in mid
+			 * 4, 5 ,6: left, right of Obstacles
 			 * 7: bomb, random position
 			 * 8: timer, random position
 			 * 9: shield, random position
 			 * */
 			switch(obstacleType[musicScript.musicflag][timeCount]){
 				case 1: case 2: case 3: temp = (GameObject)Instantiate(star);break;
-				case 4: case 5: temp = (GameObject)Instantiate(pillarObstacle);break;
-				case 6: temp = (GameObject)Instantiate(jumpObstacle);break;
+				case 4: case 5: case 6: temp = (GameObject)Instantiate(obstacle);break;
 				// about case 7 and case 8, if the flag is not activate, we make it as regular elements
 				case 7: 
 					if (challengeScript.bombflag > 0) {
 						temp = (GameObject)Instantiate(bomb);
 					}
 					else{
-						temp = (GameObject)Instantiate(pillarObstacle);
+						temp = (GameObject)Instantiate(obstacle);
 					}
 					break;
 				case 8:					
@@ -1567,9 +1564,9 @@ public class SpawnScript : MonoBehaviour {
 				case 1: temp.transform.position = new Vector3(-1.5f + pos.x, pos.y, pos.z); break;
 				case 2: temp.transform.position = new Vector3(pos.x, pos.y, pos.z); break;
 				case 3: temp.transform.position = new Vector3(1.5f + pos.x, pos.y, pos.z); break;
-				case 4: temp.transform.position = new Vector3(-2.0f + pos.x, pos.y, pos.z); break;
-				case 5: temp.transform.position = new Vector3(2.0f + pos.x, pos.y, pos.z); break;
-				case 6: temp.transform.position = new Vector3(pos.x, pos.y, pos.z); break;
+				case 4: temp.transform.position = new Vector3(-2.2f + pos.x, pos.y, pos.z); break;
+				case 5: temp.transform.position = new Vector3(pos.x, pos.y, pos.z); break;
+				case 6: temp.transform.position = new Vector3(2.2f + pos.x, pos.y, pos.z); break;
 				case 7: case 8: case 9: 
 					// Generate a random position for case 7, 8 and 9
 					System.Random rand = new System.Random();

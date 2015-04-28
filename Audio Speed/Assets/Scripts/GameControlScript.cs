@@ -50,21 +50,6 @@ public class GameControlScript : MonoBehaviour {
 		}
 	}
 	
-	public void PowerupCollected()
-	{
-		//score++;
-	}
-	
-	public void AlcoholCollected()
-	{
-		score--;
-		Debug.Log (cameraController.startRotate);
-		if (!cameraController.startRotate) {
-			cameraController.startRotate = true;
-			Debug.Log ("dds" + cameraController.startRotate);
-		}
-	}
-	
 	void OnGUI()
 	{
 		GUI.skin=skin; //use the skin in game over menu

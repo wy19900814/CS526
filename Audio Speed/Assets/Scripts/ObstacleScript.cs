@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PillarObstacleScript : PowerDownScript {
+public class ObstacleScript : PowerDownScript {
 	int score = -2;
 	int time = -10;
 
@@ -24,6 +24,6 @@ public class PillarObstacleScript : PowerDownScript {
 	}
 
 	void Update () {
-		transform.Translate(0, 0, objectSpeed);
+		transform.Translate(-objectSpeed, 0, 0);
 	}
 }
