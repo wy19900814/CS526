@@ -9,18 +9,39 @@ public class GameControlScript : MonoBehaviour {
 	float timeDeduction = 2f;
 	float totalTimeElapsed = 0;
 	float score=0f;
+	int highest;
 	public bool isGameOver = false;
 	public bool rotateCamera = false;
 
 	public CameraControlScript cameraController;
 	public PlayerControl playerController;
+
+	Material Sunny01A;
+	Material Night01A;
+
+	private const string FACEBOOK_APP_ID = "1631504580413971";
+	private const string FACEBOOK_URL = "http://www.facebook.com/dialog/feed";
 	
+	void ShareToFacebook (string linkParameter, string nameParameter, string captionParameter, string descriptionParameter, string pictureParameter, string redirectParameter)
+	{
+		Application.OpenURL (FACEBOOK_URL + "?app_id=" + FACEBOOK_APP_ID +
+		                     "&link=" + WWW.EscapeURL(linkParameter) +
+		                     "&name=" + WWW.EscapeURL(nameParameter) +
+		                     "&caption=" + WWW.EscapeURL(captionParameter) + 
+		                     "&description=" + WWW.EscapeURL(descriptionParameter) + 
+		                     "&picture=" + WWW.EscapeURL(pictureParameter) + 
+		                     "&redirect_uri=" + WWW.EscapeURL(redirectParameter));
+	}
 
 	void Start(){
+		Sunny01A = Resources.Load("Sunny 01A", typeof(Material)) as Material;
+		Night01A = Resources.Load("Night 01A", typeof(Material)) as Material;
+		RenderSettings.skybox = Sunny01A;
 		Time.timeScale = 1;  // set the time scale to 1, to start the game world. This is needed if you restart the game from the game over menu
 
+		challengeScript.timeflag = 1;//jerry debug
 		if (challengeScript.timeflag > 0) {
-			timeRemaining = 20;
+			timeRemaining = 1;//jerry debug
 		} 
 		else {
 			timeRemaining = SpawnScript.musicTotalTime [musicScript.musicflag];
@@ -28,7 +49,8 @@ public class GameControlScript : MonoBehaviour {
 	}
 
 	public void addScore(int delta){
-		score += delta;
+		if(!isGameOver)
+			score += delta;
 	}
 
 	public void addTime(int delta){
@@ -52,7 +74,12 @@ public class GameControlScript : MonoBehaviour {
 	
 	void OnGUI()
 	{
-		GUI.skin=skin; //use the skin in game over menu
+		GUIStyle myStyle = new GUIStyle();
+		myStyle.fontSize = 30;
+		Color myColor = new Color(1.0f, 0.5f, 0.016f, 1.0f);
+		myStyle.normal.textColor = myColor;
+
+		//GUI.skin=skin; //use the skin in game over menu
 		//check if game is not over, if so, display the score and the time left
 		if(!isGameOver)    
 		{
@@ -65,7 +92,15 @@ public class GameControlScript : MonoBehaviour {
 			//Time.timeScale = 0; //set the timescale to zero so as to stop the game world
 			
 			//display the final score
-			GUI.Box(new Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "GAME OVER\nYOUR SCORE: "+(int)score);
+			highest = PlayerPrefs.GetInt("Player Score");
+			if(score>=highest){
+				PlayerPrefs.SetInt("Player Score", (int)score);
+				GUI.Box(new Rect((int)(Screen.width/2.5), Screen.height/7, Screen.width/2, Screen.height/2), "New Highest Score! \nYOUR SCORE: "+(int)score+ "\nHighest Score:" + highest,myStyle);
+				Debug.Log(highest);
+			}
+			else{
+				GUI.Box(new Rect((int)(Screen.width/2.5), Screen.height/7, Screen.width/2, Screen.height/2), "Game Over! \nYOUR SCORE: "+(int)score+ "\nHighest Score:" + highest,myStyle);
+			}
 			
 			//restart the game on click
 			if (GUI.Button(new Rect(Screen.width/4+10, Screen.height/4+Screen.height/10+10, Screen.width/2-20, Screen.height/10), "RESTART")){
@@ -79,8 +114,8 @@ public class GameControlScript : MonoBehaviour {
 			}
 			
 			//exit the game
-			if (GUI.Button(new Rect(Screen.width/4+10, Screen.height/4+3*Screen.height/10+10, Screen.width/2-20, Screen.height/10), "EXIT GAME")){
-				Application.Quit();
+			if (GUI.Button(new Rect(Screen.width/4+10, Screen.height/4+3*Screen.height/10+10, Screen.width/2-20, Screen.height/10), "SHARE SCORE")){
+				ShareToFacebook("http://www-scf.usc.edu/~xiongfeg/","I'm playing Audio Speed!","New High Score!","1000","http://www-scf.usc.edu/~xiongfeg/images/photo.jpg","http://www-scf.usc.edu/~xiongfeg/");
 			}
 		}
 	}

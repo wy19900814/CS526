@@ -32,11 +32,16 @@ public class PauseMenuScript : MonoBehaviour
 	
 	private void OnGUI()
 	{
-		GUI.skin=myskin;   //use the custom GUISkin
+		//GUI.skin=myskin;   //use the custom GUISkin
 		
 		if (paused){    
-			
-			GUI.Box(new Rect(Screen.width/4, Screen.height/4, Screen.width/2, Screen.height/2), "PAUSED");
+
+			GUIStyle myStyle = new GUIStyle();
+			myStyle.fontSize = 80;
+			Color myColor = new Color(1.0f, 0.5f, 0.016f, 1.0f);
+			myStyle.normal.textColor = myColor;
+
+			GUI.Box(new Rect(Screen.width/3, Screen.height/6, Screen.width/2, Screen.height/2), "  PAUSED",myStyle);
 			//GUI.Label(new Rect(Screen.width/4+10, Screen.height/4+Screen.height/10+10, Screen.width/2-20, Screen.height/10), "YOUR SCORE: "+ ((int)score));
 			
 			if (GUI.Button(new Rect(Screen.width/4+10, Screen.height/4+Screen.height/10+10, Screen.width/2-20, Screen.height/10), "RESUME")){
