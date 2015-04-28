@@ -11,6 +11,7 @@ public class CameraControlScript : MonoBehaviour {
 
 	public AudioClip mafia;
 	public AudioClip gonggong;
+	public AudioClip fire;
 
 	enum State{
 		WAIT,
@@ -27,6 +28,7 @@ public class CameraControlScript : MonoBehaviour {
 		switch (musicScript.musicflag){
 			case 0: AudioSource.PlayClipAtPoint(mafia,transform.position); break;
 			case 1: AudioSource.PlayClipAtPoint(gonggong,transform.position); break;
+			case 2: AudioSource.PlayClipAtPoint(fire,transform.position); break;
 		}
 	}
 

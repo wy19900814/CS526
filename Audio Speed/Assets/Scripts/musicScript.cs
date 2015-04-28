@@ -7,6 +7,7 @@ public class musicScript : MonoBehaviour {
 	public int mode = 0;
 	public GameObject music1;
 	public GameObject music2;
+	public GameObject music3;
 	//public GameObject import;
 	public GameObject done;
 
@@ -18,9 +19,11 @@ public class musicScript : MonoBehaviour {
         rend = GetComponent<Renderer>();
 		music1 = GameObject.Find("txt_music1");
 		music2 = GameObject.Find("txt_music2");
+		music3 = GameObject.Find("txt_music3");
 		//import = GameObject.Find("txt_import");
 		done = GameObject.Find("txt_done");
 
+		music3.renderer.material.color = Color.red;
 		music2.renderer.material.color = Color.red;
 		music1.renderer.material.color = Color.red;
 		//import.renderer.material.color = Color.grey;
@@ -60,6 +63,10 @@ public class musicScript : MonoBehaviour {
 		}
 		if (this.name == "txt_music2") {
 			musicflag = 1;
+			Application.LoadLevel(3);
+		}
+		if (this.name == "txt_music3") {
+			musicflag = 2;
 			Application.LoadLevel(3);
 		}
 		if (this.name == "txt_done") {

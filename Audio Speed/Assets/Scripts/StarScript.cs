@@ -4,7 +4,7 @@ using System.Collections;
 public class StarScript : PowerupScript {
 	int score = 2;
 
-
+	public AudioClip blurp;
 	public override void getEffects (GameControlScript gc){
 		if (challengeScript.bombflag > 0) {
 			score = score * 2;
@@ -16,6 +16,7 @@ public class StarScript : PowerupScript {
 			score = score * 5;
 		}
 		gc.addScore (score);
+		AudioSource.PlayClipAtPoint (blurp, transform.position);
 	}
 
 	void Update () {

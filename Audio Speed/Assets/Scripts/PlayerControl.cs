@@ -21,15 +21,10 @@ public class PlayerControl : MonoBehaviour {
 	
 	//lerp example
 	public const float smooth = 1.0f;  //must be exact type as delta.time "const float" 
-	public const float jumpSpeed = 0.05f;
+	public const float jumpSpeed = 0.03f;
 	private Vector3 newPosition;
 	public bool invincible = false;
 	private float invincible_timeRemaining = 5f;
-
-
-	//audios
-	public AudioClip bloop;
-	public AudioClip blurp;
 	
 	void Start () {
 		controller = GetComponent<CharacterController>();
@@ -66,7 +61,7 @@ public class PlayerControl : MonoBehaviour {
 		newPosition.y = Y_POSITION; // move to y position
 		controller.transform.position = Vector3.Lerp (controller.transform.position, newPosition, jumpSpeed);
 		
-		float gravity = 20.0f;
+		float gravity = 40.0f;
 		
 		jumpDirection.y -= gravity * Time.deltaTime;       //Apply gravity  
 		controller.Move(jumpDirection * Time.deltaTime);      //Move the controller
@@ -143,34 +138,11 @@ public class PlayerControl : MonoBehaviour {
 		
 		if (!invincible && controller.transform.position.y <= 1.5f) {
 			animation.Play ("run");
-			
-			/*if(newPosition == leftPosition && controller.transform.position != leftPosition){
-				animation.Play ("idle");
-			}else if (newPosition == rightPosition && controller.transform.position != rightPosition) {
-				animation.Play ("idle");		
-			}else if(newPosition == middlePosition && controller.transform.position != middlePosition) {
-				animation.Play ("idle");
-			}else{
-				//keep running
-			}*/
 		}
 	}
 	
 	void OnTriggerEnter(Collider other)
 	{               
-		/*if(other.gameObject.name == "Powerup(Clone)")
-		{
-
-			other.gameObject.GetComponent<ItemScript>().getEffects(control);
-			control.PowerupCollected();
-			audio.PlayOneShot(blurp);
-		}
-		else if(other.gameObject.name == "Obstacle(Clone)")
-		{
-			Debug.Log ("Power down");
-			control.AlcoholCollected();
-			audio.PlayOneShot(bloop);
-		}*/
 		Debug.Log ("Object Script" + other.gameObject.GetComponent<PowerupScript> ());
 
 		if (!invincible || (invincible && (other.gameObject.GetComponent<PowerupScript> () != null))) {
