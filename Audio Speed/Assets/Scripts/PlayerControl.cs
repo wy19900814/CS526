@@ -61,7 +61,7 @@ public class PlayerControl : MonoBehaviour {
 		newPosition.y = Y_POSITION; // move to y position
 		controller.transform.position = Vector3.Lerp (controller.transform.position, newPosition, jumpSpeed);
 		
-		float gravity = 40.0f;
+		float gravity = 50.0f;
 		
 		jumpDirection.y -= gravity * Time.deltaTime;       //Apply gravity  
 		controller.Move(jumpDirection * Time.deltaTime);      //Move the controller

@@ -18,6 +18,7 @@ public class GameControlScript : MonoBehaviour {
 
 	void Start(){
 		Time.timeScale = 1;  // set the time scale to 1, to start the game world. This is needed if you restart the game from the game over menu
+
 		if (challengeScript.timeflag > 0) {
 			timeRemaining = 20;
 		} 
