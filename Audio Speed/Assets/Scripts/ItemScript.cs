@@ -3,7 +3,7 @@ using System.Collections;
 
 abstract public class ItemScript : MonoBehaviour {
 
-	public float objectSpeed = -0.5f;
+	public float objectSpeed = -1.0f;
 	
 	void Update () {
 		transform.Translate(0, 0, objectSpeed);

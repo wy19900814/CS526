@@ -39,6 +39,7 @@ public class musicScript : MonoBehaviour {
 			// Change Color
 			music1.renderer.material.color -= new Color(0.1F, 0.1F, 0.1F) * Time.deltaTime;
 			music2.renderer.material.color -= new Color(0.1F, 0.1F, 0.1F) * Time.deltaTime;
+			music3.renderer.material.color -= new Color(0.1F, 0.1F, 0.1F) * Time.deltaTime;
 			//import.renderer.material.color -= new Color(0.1F, 0.1F, 0.1F) * Time.deltaTime;
 			done.renderer.material.color -= new Color(0.1F, 0.1F, 0.1F) * Time.deltaTime;
 		}

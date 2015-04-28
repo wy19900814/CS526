@@ -12,6 +12,7 @@ public class GameControlScript : MonoBehaviour {
 	int highest;
 	public bool isGameOver = false;
 	public bool rotateCamera = false;
+	public bool shared = false;
 
 	public CameraControlScript cameraController;
 	public PlayerControl playerController;
@@ -34,14 +35,20 @@ public class GameControlScript : MonoBehaviour {
 	}
 
 	void Start(){
+		score = 0;
 		Sunny01A = Resources.Load("Sunny 01A", typeof(Material)) as Material;
 		Night01A = Resources.Load("Night 01A", typeof(Material)) as Material;
-		RenderSettings.skybox = Sunny01A;
+
+		if (musicScript.musicflag == 2) {
+			RenderSettings.skybox = Sunny01A;
+		} else if (musicScript.musicflag == 0) {
+			RenderSettings.skybox = Night01A;
+		}
 		Time.timeScale = 1;  // set the time scale to 1, to start the game world. This is needed if you restart the game from the game over menu
 
-		challengeScript.timeflag = 1;//jerry debug
+		//challengeScript.timeflag = 1;//jerry debug
 		if (challengeScript.timeflag > 0) {
-			timeRemaining = 1;//jerry debug
+			timeRemaining = 20;//jerry debug
 		} 
 		else {
 			timeRemaining = SpawnScript.musicTotalTime [musicScript.musicflag];
@@ -94,6 +101,7 @@ public class GameControlScript : MonoBehaviour {
 			//display the final score
 			highest = PlayerPrefs.GetInt("Player Score");
 			if(score>=highest){
+				highest = (int)score;
 				PlayerPrefs.SetInt("Player Score", (int)score);
 				GUI.Box(new Rect((int)(Screen.width/2.5), Screen.height/7, Screen.width/2, Screen.height/2), "New Highest Score! \nYOUR SCORE: "+(int)score+ "\nHighest Score:" + highest,myStyle);
 				Debug.Log(highest);
@@ -113,9 +121,10 @@ public class GameControlScript : MonoBehaviour {
 				Application.LoadLevel(0);
 			}
 			
-			//exit the game
+			//Share Score
 			if (GUI.Button(new Rect(Screen.width/4+10, Screen.height/4+3*Screen.height/10+10, Screen.width/2-20, Screen.height/10), "SHARE SCORE")){
-				ShareToFacebook("http://www-scf.usc.edu/~xiongfeg/","I'm playing Audio Speed!","New High Score!","1000","http://www-scf.usc.edu/~xiongfeg/images/photo.jpg","http://www-scf.usc.edu/~xiongfeg/");
+				PlayerPrefs.DeleteAll();
+				ShareToFacebook("http://www-scf.usc.edu/~xiongfeg/","I'm playing Audio Speed!","New High Score!",highest.ToString(),"http://s18.postimg.org/hyf2mc44p/icon.jpg","http://www-scf.usc.edu/~xiongfeg/");
 			}
 		}
 	}
