@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class ClockScript : PowerupScript {
-	int time = 5;
+	int time = 10;
 
 	public override void getEffects (GameControlScript gc){
 		gc.addTime (time);
