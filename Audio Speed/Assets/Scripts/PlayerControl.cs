@@ -82,6 +82,7 @@ public class PlayerControl : MonoBehaviour {
 		
 		//Debug.Log (controller.isGrounded);
 		//old IOS control
+
 		/*
 		#if UNITY_IOS
 		int fingerCount = 0;
@@ -91,21 +92,11 @@ public class PlayerControl : MonoBehaviour {
 		}
 		
 		if(Input.touchCount > 0){
-			if (fingerCount == 2){
-				//animation.Stop("run");
-				animation.Play("jump_pose");
-				//transform.Translate(Vector3.up * 90, Space.World)
-				jumpDirection.y = 16.0f;
-				
-				//controller.transform.Translate(Vector3.up * 5.0f); //add the jump height to the character
-				inJump = true;
-				return;
-			}
-			else if(fingerCount == 1){
-				if(Input.GetTouch(0).position.x > (Screen.height / 2)){
+			if(fingerCount == 1){
+				if(Input.GetTouch(0).position.x > (Screen.width / 3 * 2)){
 					newPosition = rightPosition;
 				}
-				else{
+				else if(Input.GetTouch(0).position.x < (Screen.width / 3 * 1)){
 					newPosition = leftPosition;
 				}
 			}
@@ -114,38 +105,49 @@ public class PlayerControl : MonoBehaviour {
 			}
 		}
 		#endif
-		*/
+	*/
+
 		#if UNITY_IOS
 		int fingerCount = 0;
 		foreach (Touch touch in Input.touches) {
 			if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled)
 				fingerCount++; 
 		}
-		
-		if(Input.touchCount > 0){
-			if (fingerCount == 2){
-				//animation.Stop("run");
-				animation.Play("jump_pose");
-				//transform.Translate(Vector3.up * 90, Space.World)
-				jumpDirection.y = 16.0f;
-				
-				//controller.transform.Translate(Vector3.up * 5.0f); //add the jump height to the character
-				inJump = true;
-				return;
+
+//		if(Input.touchCount > 0){
+//			if(Input.GetTouch(0).phase == TouchPhase.Began){
+//				if(Input.GetTouch(0).position.x > (Screen.width / 3 * 2)){
+//					newPosition = rightPosition;
+//				}else if(Input.GetTouch(0).position.x < (Screen.width / 3 * 1)){
+//					newPosition = leftPosition;
+//				}
+//			}else if(Input.GetTouch(0).phase == TouchPhase.Ended){
+//				if(Input.GetTouch(0).position.x > (Screen.width / 3 * 2) && newPosition == rightPosition){
+//					newPosition = middlePosition;
+//				}else if(Input.GetTouch(0).position.x < (Screen.width / 3 * 1) && newPosition == leftPosition){
+//					newPosition = middlePosition;
+//				}
+//			}
+//		}
+
+		if(Input.touchCount == 1){
+			if(Input.GetTouch(0).position.x > (Screen.width / 3 * 2)){
+				newPosition = rightPosition;
+			}else if(Input.GetTouch(0).position.x < (Screen.width / 3 * 1)){
+				newPosition = leftPosition;
 			}
-			else if(fingerCount == 1){
-				if(Input.GetTouch(0).position.x > (Screen.height / 2)){
-					newPosition = rightPosition;
-				}
-				else{
-					newPosition = leftPosition;
-				}
+		}else if(Input.touchCount == 2){
+			if(Input.GetTouch(0).position.x > (Screen.width / 3 * 2) && Input.GetTouch(1).position.x < (Screen.width / 3 * 1)){
+				newPosition = leftPosition;
+			}else if(Input.GetTouch(1).position.x > (Screen.width / 3 * 2) && Input.GetTouch(0).position.x < (Screen.width / 3 * 1)){
+				newPosition = rightPosition;
 			}
-			else{
-				newPosition = middlePosition;
-			}
+		}else if(Input.touchCount == 0){
+			newPosition = middlePosition;
 		}
 		#endif
+
+
 
 		//old control logic 04/28
 
@@ -187,6 +189,28 @@ public class PlayerControl : MonoBehaviour {
 	
 
 		Destroy(other.gameObject);
+		
+	}
+
+	private void OnGUI(){
+		Rect left = new Rect (Screen.width / 30, Screen.height / 5 * 4, Screen.width / 10, Screen.height / 10);
+		Rect right = new Rect (Screen.width - Screen.width / 15 * 2, Screen.height / 5 * 4, Screen.width / 10, Screen.height / 10);
+
+		if (GUI.Button (new Rect (Screen.width / 2 - Screen.width / 30, Screen.height / 5 * 4, Screen.width / 10, Screen.height / 10), "Jump")) {          //play "Jump" animation if character is grounded and spacebar is pressed
+						//animation.Stop("run");
+						animation.Play ("jump_pose");
+						//transform.Translate(Vector3.up * 90, Space.World)
+						jumpDirection.y = 16.0f;
+			
+						//controller.transform.Translate(Vector3.up * 5.0f); //add the jump height to the character
+						inJump = true;
+						return;
+		} else if (GUI.Button (left, "Left")) {
+		
+		} else if (GUI.Button (right, "Right")) {
+
+		}
+		
 		
 	}
 }

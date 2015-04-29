@@ -33,6 +33,10 @@ public class PauseMenuScript : MonoBehaviour
 	private void OnGUI()
 	{
 		//GUI.skin=myskin;   //use the custom GUISkin
+
+		if(GUI.Button(new Rect(Screen.width/30, Screen.height/30 + 30, Screen.width/15, Screen.height/15),"Pause")){
+			paused = true;
+		}
 		
 		if (paused){    
 
