@@ -25,6 +25,9 @@ public class PlayerControl : MonoBehaviour {
 	private Vector3 newPosition;
 	public bool invincible = false;
 	private float invincible_timeRemaining = 5f;
+
+	//track current state
+	private int curPos = 0; //Mid: 0, Left -1, Right 1;
 	
 	void Start () {
 		controller = GetComponent<CharacterController>();
@@ -78,7 +81,8 @@ public class PlayerControl : MonoBehaviour {
 		Vector3 rightPosition = new Vector3(TRACK_WIDTH, Y_POSITION, Z_POSITION );
 		
 		//Debug.Log (controller.isGrounded);
-		
+		//old IOS control
+		/*
 		#if UNITY_IOS
 		int fingerCount = 0;
 		foreach (Touch touch in Input.touches) {
@@ -110,31 +114,63 @@ public class PlayerControl : MonoBehaviour {
 			}
 		}
 		#endif
+		*/
+		#if UNITY_IOS
+		int fingerCount = 0;
+		foreach (Touch touch in Input.touches) {
+			if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled)
+				fingerCount++; 
+		}
 		
-		
+		if(Input.touchCount > 0){
+			if (fingerCount == 2){
+				//animation.Stop("run");
+				animation.Play("jump_pose");
+				//transform.Translate(Vector3.up * 90, Space.World)
+				jumpDirection.y = 16.0f;
+				
+				//controller.transform.Translate(Vector3.up * 5.0f); //add the jump height to the character
+				inJump = true;
+				return;
+			}
+			else if(fingerCount == 1){
+				if(Input.GetTouch(0).position.x > (Screen.height / 2)){
+					newPosition = rightPosition;
+				}
+				else{
+					newPosition = leftPosition;
+				}
+			}
+			else{
+				newPosition = middlePosition;
+			}
+		}
+		#endif
+
+		//old control logic 04/28
+
 		if (Input.GetButton ("Jump")) {          //play "Jump" animation if character is grounded and spacebar is pressed
-			//animation.Stop("run");
-			animation.Play("jump_pose");
-			//transform.Translate(Vector3.up * 90, Space.World)
-			jumpDirection.y = 16.0f;
+						//animation.Stop("run");
+						animation.Play ("jump_pose");
+						//transform.Translate(Vector3.up * 90, Space.World)
+						jumpDirection.y = 16.0f;
 			
-			//controller.transform.Translate(Vector3.up * 5.0f); //add the jump height to the character
-			inJump = true;
-			return;
+						//controller.transform.Translate(Vector3.up * 5.0f); //add the jump height to the character
+						inJump = true;
+						return;
 			
-		}else if (Input.GetKeyDown (KeyCode.LeftArrow))
-			newPosition = leftPosition;
-		else if (Input.GetKeyDown (KeyCode.RightArrow))
-			newPosition = rightPosition;
-		else if (Input.GetKeyUp (KeyCode.LeftArrow) || Input.GetKeyUp (KeyCode.RightArrow))
-			newPosition = middlePosition;
+				} else if (Input.GetKeyDown (KeyCode.LeftArrow))
+						newPosition = leftPosition;
+				else if (Input.GetKeyDown (KeyCode.RightArrow))
+						newPosition = rightPosition;
+				else if (Input.GetKeyUp (KeyCode.LeftArrow) && newPosition == leftPosition)
+						newPosition = middlePosition;
+				else if (Input.GetKeyUp (KeyCode.RightArrow) && newPosition == rightPosition)
+						newPosition = middlePosition;
+
 		
 		controller.transform.position = Vector3.Lerp (controller.transform.position, newPosition, smooth);
-		//Debug.Log ("curr position" + controller.transform.position.ToString ());
-		//Debug.Log ("new position" + newPosition.ToString ());
-		//controller.transform.Translate(Vector3.down * 0.01f); //cannot put too large or the character falls at first stage
-		
-		//change character animation
+
 		
 		if (!invincible && controller.transform.position.y <= 1.5f) {
 			animation.Play ("run");
