@@ -10,7 +10,9 @@ abstract public class ItemScript : MonoBehaviour {
 	}
 	
 	void Start(){
-
+		#if UNITY_IOS
+		objectSpeed = -1.0f;
+		#endif
 	}
 
 	abstract public void getEffects(GameControlScript gc);

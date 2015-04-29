@@ -28,7 +28,7 @@ public class SpawnScript : MonoBehaviour {
 		timeCount = 0;
 		// These are the initializers!!
 		musicTotalBeats = new List<int> (){200, 119, 257};
-		pos = new List<float> (){0.1f, 0.0f, 0.0f};
+		pos = new List<float> (){0.1f, 0.0f, 2.0f};
 		musicTime = new List<List<float>>();
 		obstacleType = new List<List<int>>();
 
