@@ -11,7 +11,9 @@ public class ShieldScript : PowerupScript {
 	}
 
 	void startInvincibleEffect(PlayerControl pc){
-		pc.animation.Play ("jump_pose");
+		//pc.animation.Play ("jump_pose");
+		var particle = pc.character.GetComponent<ParticleSystem> ();
+		particle.Play();
 	}
 	
 	// Update is called once per frame

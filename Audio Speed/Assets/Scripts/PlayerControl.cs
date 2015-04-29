@@ -28,14 +28,19 @@ public class PlayerControl : MonoBehaviour {
 
 	//track current state
 	private int curPos = 0; //Mid: 0, Left -1, Right 1;
-	
+
+	public GameObject character;
+
+
 	void Start () {
 		controller = GetComponent<CharacterController>();
 		newPosition = controller.transform.position;
+		character.GetComponent<ParticleSystem>().Stop();
 	}
 
 	void stopInvincibleEffect(){
 		animation.Play ("run");
+		character.GetComponent<ParticleSystem>().Stop();
 	}
 
 	// Update is called once per frame
@@ -79,56 +84,14 @@ public class PlayerControl : MonoBehaviour {
 		Vector3 leftPosition = new Vector3 (-TRACK_WIDTH, Y_POSITION, Z_POSITION );
 		Vector3 middlePosition = new Vector3(0.0f, Y_POSITION, Z_POSITION );
 		Vector3 rightPosition = new Vector3(TRACK_WIDTH, Y_POSITION, Z_POSITION );
-		
-		//Debug.Log (controller.isGrounded);
-		//old IOS control
 
-		/*
-		#if UNITY_IOS
+
+		/*#if UNITY_IOS
 		int fingerCount = 0;
 		foreach (Touch touch in Input.touches) {
 			if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled)
 				fingerCount++; 
 		}
-		
-		if(Input.touchCount > 0){
-			if(fingerCount == 1){
-				if(Input.GetTouch(0).position.x > (Screen.width / 3 * 2)){
-					newPosition = rightPosition;
-				}
-				else if(Input.GetTouch(0).position.x < (Screen.width / 3 * 1)){
-					newPosition = leftPosition;
-				}
-			}
-			else{
-				newPosition = middlePosition;
-			}
-		}
-		#endif
-	*/
-
-		#if UNITY_IOS
-		int fingerCount = 0;
-		foreach (Touch touch in Input.touches) {
-			if (touch.phase != TouchPhase.Ended && touch.phase != TouchPhase.Canceled)
-				fingerCount++; 
-		}
-
-//		if(Input.touchCount > 0){
-//			if(Input.GetTouch(0).phase == TouchPhase.Began){
-//				if(Input.GetTouch(0).position.x > (Screen.width / 3 * 2)){
-//					newPosition = rightPosition;
-//				}else if(Input.GetTouch(0).position.x < (Screen.width / 3 * 1)){
-//					newPosition = leftPosition;
-//				}
-//			}else if(Input.GetTouch(0).phase == TouchPhase.Ended){
-//				if(Input.GetTouch(0).position.x > (Screen.width / 3 * 2) && newPosition == rightPosition){
-//					newPosition = middlePosition;
-//				}else if(Input.GetTouch(0).position.x < (Screen.width / 3 * 1) && newPosition == leftPosition){
-//					newPosition = middlePosition;
-//				}
-//			}
-//		}
 
 		if(Input.touchCount == 1){
 			if(Input.GetTouch(0).position.x > (Screen.width / 3 * 2)){
@@ -146,7 +109,7 @@ public class PlayerControl : MonoBehaviour {
 			newPosition = middlePosition;
 		}
 		#endif
-
+*/
 
 
 		//old control logic 04/28

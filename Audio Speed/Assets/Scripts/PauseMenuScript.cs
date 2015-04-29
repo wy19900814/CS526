@@ -5,7 +5,7 @@ public class PauseMenuScript : MonoBehaviour
 {
 	public GUISkin myskin;  //custom GUIskin reference
 	public string levelToLoad;
-	public bool paused = false;
+	public static bool paused = false;
 	
 	private void Start()
 	{
