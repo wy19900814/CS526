@@ -18,6 +18,7 @@ public class GameControlScript : MonoBehaviour {
 	public PlayerControl playerController;
 
 	Material Sunny01A;
+	Material Sunny01B;
 	Material Night01A;
 
 	private const string FACEBOOK_APP_ID = "1631504580413971";
@@ -37,12 +38,15 @@ public class GameControlScript : MonoBehaviour {
 	void Start(){
 		score = 0;
 		Sunny01A = Resources.Load("Sunny 01A", typeof(Material)) as Material;
+		Sunny01B = Resources.Load("Sunny 01B", typeof(Material)) as Material;
 		Night01A = Resources.Load("Night 01A", typeof(Material)) as Material;
 
 		if (musicScript.musicflag == 2) {
-			RenderSettings.skybox = Sunny01A;
-		} else if (musicScript.musicflag == 0) {
-			RenderSettings.skybox = Night01A;
+						RenderSettings.skybox = Sunny01A;
+				} else if (musicScript.musicflag == 0) {
+						RenderSettings.skybox = Night01A;
+				} else if (musicScript.musicflag == 1) {
+			RenderSettings.skybox = Sunny01B;		
 		}
 		Time.timeScale = 1;  // set the time scale to 1, to start the game world. This is needed if you restart the game from the game over menu
 
