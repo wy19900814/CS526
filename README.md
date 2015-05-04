@@ -12,13 +12,13 @@ The speed and tempo will attract people who like music and youngsters to not onl
 [![Trailer](/Trailer.png)](http://www.youtube.com/watch?v=-VIRrA-0pCg)
 
 ## Team Member
-|Yang 	Wang	|Project Manager	|
-|Feng 	Wen	|System Architecture	|
-|Yufeng Jiang	|Player Control Designer|
-|Xiongfei Gao	|Game Control Designer	|
-|Xinyu 	Huang	|Art Designing		|
-|Yin	Li	|Music Analyzer		|
-|Zhenzhong Luo	|Partial System Designer|
+| Yang	Wang	| Project Manager	  |
+| Feng	Wen	| System Architecture	  |
+| Yufeng Jiang	| Player Control Designer |
+| Xiongfei Gao	| Game Control Designer	  |
+| Xinyu Huang	| Art Designing		  |
+| Yin	Li	| Music Analyzer	  |
+| Zhenzhong Luo	| Partial System Designer |
 
 ## 1 Game Idea
 This section gives a brief introduction of the game plays. As mentioned before Audio Speed is a combination of Parkour-game (e.g. Temple-run) and Music games (e.g. Taiko no Tatsujin). The jet plane is flying on an finite/infinite track, trying to dodge obstacles while collect target items. The rhythm of the movement corresponds to the back-ground-music. Hence players could have the experience of speeding while interacting with the music. An example of this type of game is Audiosurf. 
