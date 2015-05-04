@@ -13,7 +13,7 @@ The speed and tempo will attract people who like music and youngsters to not onl
 
 ## Team Member
 | Name          | Role                    |
-| :-----------: |:----------------------- |
+| :-----------: |:----------------------: |
 | Yang Wang	| Project Manager	  |
 | Feng Wen	| System Architecture	  |
 | Yufeng Jiang	| Player Control Designer |
